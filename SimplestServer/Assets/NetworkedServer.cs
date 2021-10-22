@@ -13,20 +13,21 @@ public class NetworkedServer : MonoBehaviour
     int unreliableChannelID;
     int hostID;
     int socketPort = 5491;
+    string PlayerAccountFilePath;
 
     LinkedList<PlayerAccount> playerAccounts;
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerAccountFilePath = Application.dataPath + Path.DirectorySeparatorChar + "PlayerAcountData.txt";
         NetworkTransport.Init();
         ConnectionConfig config = new ConnectionConfig();
         reliableChannelID = config.AddChannel(QosType.Reliable);
         unreliableChannelID = config.AddChannel(QosType.Unreliable);
         HostTopology topology = new HostTopology(config, maxConnections);
         hostID = NetworkTransport.AddHost(topology, socketPort, null);
-        playerAccounts = new LinkedList<PlayerAccount>();
-
+        playerAccounts = new LinkedList<PlayerAccount>();      
     }
 
     // Update is called once per frame
@@ -137,7 +138,32 @@ public class NetworkedServer : MonoBehaviour
 
 
     }
+    private void SavePlayerAccounts()
+    {
+        StreamWriter sw = new StreamWriter(PlayerAccountFilePath);
+        foreach (PlayerAccount pa in playerAccounts)
+        {
+            sw.WriteLine(pa.name + "," + pa.password);
+        }
+        sw.Close();
+    }
 
+    private void LoadPlayerAccounts()
+    {
+        if (File.Exists(PlayerAccountFilePath))
+        {
+            StreamReader sr = new StreamReader(PlayerAccountFilePath);
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                string[] csv = line.Split(',');
+                PlayerAccount pa = new PlayerAccount(csv[0], csv[1]);
+                playerAccounts.AddLast(pa);
+
+            }
+        }
+        //playerAccounts.AddLast();
+    }
 }
 
 public class PlayerAccount
@@ -148,6 +174,11 @@ public class PlayerAccount
         name = Name;
         password = Password;
     }
+}
+
+public class GameSession
+{
+
 }
 
 public static class ClientToServerSignifiers
