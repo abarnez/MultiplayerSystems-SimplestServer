@@ -15,6 +15,10 @@ public class NetworkedServer : MonoBehaviour
     int socketPort = 5491;
     string PlayerAccountFilePath;
 
+    int playerWaitingForMatch = -1;
+
+    LinkedList<GameSession> gameSessions;
+
     LinkedList<PlayerAccount> playerAccounts;
 
     // Start is called before the first frame update
@@ -27,7 +31,8 @@ public class NetworkedServer : MonoBehaviour
         unreliableChannelID = config.AddChannel(QosType.Unreliable);
         HostTopology topology = new HostTopology(config, maxConnections);
         hostID = NetworkTransport.AddHost(topology, socketPort, null);
-        playerAccounts = new LinkedList<PlayerAccount>();      
+        playerAccounts = new LinkedList<PlayerAccount>();
+        gameSessions = new LinkedList<GameSession>();
     }
 
     // Update is called once per frame
@@ -136,8 +141,44 @@ public class NetworkedServer : MonoBehaviour
 
         }
 
+        else if (signifier == ClientToServerSignifiers.AddToGameSessionQueue)
+        {
+            if (playerWaitingForMatch == -1)
+            {
+                playerWaitingForMatch = id;
+            } else
+            {
+                GameSession gs = new GameSession(playerWaitingForMatch, id);
+                gameSessions.AddLast(gs);
+                SendMessageToClient(ServerToClientSignifiers.GameSessionStarted + "", id);
+                SendMessageToClient(ServerToClientSignifiers.GameSessionStarted + "", playerWaitingForMatch);
+                playerWaitingForMatch = -1;
+            }
+        }
+        else if (signifier == ClientToServerSignifiers.ticTacToePlay)
+        {
+            GameSession gs = FindGameSessionWithPlayerID(id);
+            if(gs.playerID1 == id)
+            {
+                SendMessageToClient(ServerToClientSignifiers.OpponentTicTacToePlay + "", gs.playerID2);
+            } else
+            {
+                SendMessageToClient(ServerToClientSignifiers.OpponentTicTacToePlay + "", gs.playerID1);
+            }
+        }
 
     }
+
+    private GameSession FindGameSessionWithPlayerID(int id)
+    {
+        foreach(GameSession gs in gameSessions)
+        {
+            if(gs.playerID1 == id || gs.playerID2 == id)           
+                return gs;                        
+        }
+        return null;
+    }
+
     private void SavePlayerAccounts()
     {
         StreamWriter sw = new StreamWriter(PlayerAccountFilePath);
@@ -169,6 +210,7 @@ public class NetworkedServer : MonoBehaviour
 public class PlayerAccount
 {
     public string name, password;
+    //public GameSession;
     public PlayerAccount(string Name, string Password)
     {
         name = Name;
@@ -178,18 +220,28 @@ public class PlayerAccount
 
 public class GameSession
 {
+   public  int playerID1, playerID2;
 
+    public GameSession(int PlayerID1, int PlayerID2)
+    {
+        playerID1 = PlayerID1;
+        playerID2 = PlayerID2;
+    }
 }
 
 public static class ClientToServerSignifiers
 {
     public const int Login = 1;
     public const int CreateAccount = 2;
+    public const int AddToGameSessionQueue = 3;
+    public const int ticTacToePlay = 4;
 }
 
 public static class ServerToClientSignifiers
 {
     public const int LoginResponse = 1;
+    public const int GameSessionStarted = 2;
+    public const int OpponentTicTacToePlay = 3;
     //  public const int LoginFail = 2;
     //public const int CreateAccountSuccess = 3;
     //public const int CreateAccountFailure = 4;

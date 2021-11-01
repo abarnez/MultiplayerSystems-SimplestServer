@@ -15,11 +15,11 @@ F:/GitHubRepos/MultiplayerSystems-SimplestServer/SimplestServer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51278
+60525
 Successfully changed project path to: F:/GitHubRepos/MultiplayerSystems-SimplestServer/SimplestServer
 F:/GitHubRepos/MultiplayerSystems-SimplestServer/SimplestServer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 38.21 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 53.08 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path F:/Unity Installs/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -35,111 +35,88 @@ Initialize mono
 Mono path[0] = 'F:/Unity Installs/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'F:/Unity Installs/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'F:/Unity Installs/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56580
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56472
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: F:/Unity Installs/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001173 seconds.
+Registered in 0.001044 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 42.48 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 36.67 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.160 seconds
+- Completed reload, in  1.207 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000779 seconds.
+Registered in 0.000781 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 37.89 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 38.17 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.019 seconds
+- Completed reload, in  1.007 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.62 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1788 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 83.6 MB.
 System memory in use after: 83.5 MB.
 
 Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2227.
-Total: 2.262500 ms (FindLiveObjects: 0.304400 ms CreateObjectMapping: 0.065500 ms MarkObjects: 1.768600 ms  DeleteObjects: 0.122200 ms)
+Total: 2.972900 ms (FindLiveObjects: 0.306100 ms CreateObjectMapping: 0.069200 ms MarkObjects: 2.454700 ms  DeleteObjects: 0.141400 ms)
 
 ========================================================================
 Received Import Request.
   path: Assets/NetworkedServer.cs
   artifactKey: Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7667732c13d9312d378e8ef8b80e9cf') in 0.050282 seconds
-  Import took 0.073679 seconds .
+Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1463cc1d8af1047a64a9fe2a4e53265d') in 0.055681 seconds
+  Import took 0.073240 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007591 seconds.
+  path: Assets/NetworkedServer.cs
+  artifactKey: Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1463cc1d8af1047a64a9fe2a4e53265d') in 0.002659 seconds
+  Import took 0.005773 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.000792 seconds.
+Registered in 0.001310 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.36 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.77 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.846 seconds
+- Completed reload, in  1.159 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.37 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.39 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1783 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 83.6 MB.
 System memory in use after: 83.6 MB.
 
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2230.
-Total: 1.929200 ms (FindLiveObjects: 0.201300 ms CreateObjectMapping: 0.040100 ms MarkObjects: 1.590400 ms  DeleteObjects: 0.096500 ms)
+Total: 2.754400 ms (FindLiveObjects: 0.277100 ms CreateObjectMapping: 0.100900 ms MarkObjects: 2.261200 ms  DeleteObjects: 0.114000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2693.670983 seconds.
+  Time since last request: 2179.417146 seconds.
   path: Assets/NetworkedServer.cs
   artifactKey: Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4742aeb66fa4ae385864b4a0e29a816b') in 0.004612 seconds
-  Import took 0.007401 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000835 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.35 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.842 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1783 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 83.7 MB.
-System memory in use after: 83.7 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2233.
-Total: 2.154000 ms (FindLiveObjects: 0.276500 ms CreateObjectMapping: 0.047000 ms MarkObjects: 1.731800 ms  DeleteObjects: 0.097100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 1696.453386 seconds.
-  path: Assets/NetworkedServer.cs
-  artifactKey: Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b833b92b9ce18f95434be0bd76e5f9') in 0.004926 seconds
-  Import took 0.007730 seconds .
+Start importing Assets/NetworkedServer.cs using Guid(13eb2efe637eee34a9d83e6bf0bb4b85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5434fb500d217acdb9ab009b39a86932') in 0.006069 seconds
+  Import took 0.009511 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
